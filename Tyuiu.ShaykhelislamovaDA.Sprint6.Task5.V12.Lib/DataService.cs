@@ -12,9 +12,22 @@ namespace Tyuiu.ShaykhelislamovaDA.Sprint6.Task5.V12.Lib
                 while ((line = reader.ReadLine()) != null) { len++; }
             }
 
-            double[] numsArray = new double[20];
+            
 
             int index = 0;
+            string[] dig0;
+            using (StreamReader reader = new StreamReader(path))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    dig0 = line.Split(' ');
+                    len = dig0.Length;
+                }
+            }
+
+            double[] numsArray = new double[len];
+
             using (StreamReader reader = new StreamReader(path))
             {
                 string line;
@@ -22,7 +35,7 @@ namespace Tyuiu.ShaykhelislamovaDA.Sprint6.Task5.V12.Lib
                 {
                     line = line.Replace('.', ',');
                     string[] dig = line.Split(' ');
-                    for (int i = 0; i < dig.Length; i++)
+                    for (int i = 0; i < len; i++)
                     {
                         numsArray[index] = Convert.ToDouble(dig[index]);
                         index++;
